@@ -1,0 +1,30 @@
+html, body {
+    width:100%; /* Needed to avoid a redrawing bug in Firefox when resizing windows */
+    height:100%;
+}
+body {
+
+    display:-webkit-box;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-box-pack: center;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-box-align: center;
+}
+
+.login-container {
+    border: 1px solid #c0c0c0;
+    width: 500px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login-container input {
+    border-color: #c0c0c0 !important;
+}
+
+.login-container .cancel {
+    margin-left: 10px;
+}
