@@ -1,6 +1,9 @@
 'use strict';
 
 
+/*
+* Handles the actual work of calling the REST endpoint to authenticate the user
+* */
 angular.module('admin').factory('AuthService', ['$http',
     function($http)
     {
