@@ -7,7 +7,8 @@ angular.module('admin').config(['$stateProvider',
         $stateProvider.
             state('login', {
                 url: '/login',
-                templateUrl: 'modules/admin/views/login.client.view.html'
+                templateUrl: 'modules/admin/views/login.client.view.html',
+                controller: 'LoginController'
             });
     }
 ]);

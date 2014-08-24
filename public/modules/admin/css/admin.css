@@ -28,3 +28,20 @@ body {
 .login-container .cancel {
     margin-left: 10px;
 }
+
+.form-group.submit {
+    float: left;
+}
+
+.login-container .alert-danger {
+    padding: 5px 20px;
+    float: left;
+    margin: 5px 0 0 10px;
+    opacity: 1;
+    transition: all linear .20s;
+}
+
+.login-container .alert-danger.ng-hide {
+    opacity: 0;
+}
+
