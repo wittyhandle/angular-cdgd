@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('admin').controller('LoginController', ['$scope',
-    function($scope) {
+angular.module('admin').controller('LoginController', ['$scope', 'AuthService',
+    function($scope, AuthService) {
 
-        $scope.login = function() {
-            $scope.invalid = true;
+        $scope.login = function()
+        {
+            $scope.invalid = !(AuthService.login($scope.credentials));
         };
 
 
