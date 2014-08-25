@@ -11,8 +11,12 @@ angular.module('admin').factory('AuthService', ['$http',
 
         authService.login = function(credentials)
         {
-            console.log(credentials);
-            return true;
+            return $http
+                .post('/auth/signin', credentials)
+                .then(function(response)
+                {
+                    return response.data;
+                });
         }
 
         return authService;

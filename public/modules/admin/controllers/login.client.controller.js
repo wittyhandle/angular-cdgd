@@ -3,9 +3,22 @@
 angular.module('admin').controller('LoginController', ['$scope', 'AuthService',
     function($scope, AuthService) {
 
-        $scope.login = function()
+        $scope.login = function(credentials)
         {
-            $scope.invalid = !(AuthService.login($scope.credentials));
+            console.log(credentials);
+            //$scope.invalid = !(AuthService.login($scope.credentials));
+            AuthService.login(credentials).then(
+                function (user)
+                {
+                    console.log(user.email);
+                    $scope.invalid = false;
+                },
+                function()
+                {
+                    $scope.invalid = true;
+                });
+
+
         };
 
 
