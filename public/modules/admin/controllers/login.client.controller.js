@@ -11,7 +11,7 @@ angular.module('admin').controller('LoginController', ['$scope', 'AuthService', 
                 function (user)
                 {
                     console.log(user.email);
-                    $location.path('/admin/projects');
+                    $location.path('/admin/index');
                 },
                 function()
                 {

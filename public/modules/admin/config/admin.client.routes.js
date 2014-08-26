@@ -10,9 +10,12 @@ angular.module('admin').config(['$stateProvider',
                 templateUrl: 'modules/admin/views/login.client.view.html',
                 controller: 'LoginController'
             }).
-            state('projectIndex', {
-                url: '/admin/projects',
-                templateUrl: 'modules/admin/views/project.index.view.html'
+            state('admin', {
+                url: '/admin/index',
+                templateUrl: 'modules/admin/views/project.index.view.html',
+                data: {
+                    secure: true
+                }
             });
     }
 ]);
