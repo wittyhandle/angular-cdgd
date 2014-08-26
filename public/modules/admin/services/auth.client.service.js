@@ -7,7 +7,7 @@
 angular.module('admin').factory('AuthService', ['$http',
     function($http)
     {
-        var authService = {}
+        var authService = {};
 
         authService.login = function(credentials)
         {
@@ -17,7 +17,7 @@ angular.module('admin').factory('AuthService', ['$http',
                 {
                     return response.data;
                 });
-        }
+        };
 
         return authService;
     }
