@@ -100,6 +100,18 @@ module.exports = function(db) {
 	app.use(passport.initialize());
 	app.use(passport.session());
 
+    // authentication filter, this needs to be defined after passport to give
+    // de/serialization a chance to execute
+    app.use('/auth', function(req, res, next)
+    {
+        if (!req.user)
+        {
+            res.status(401);
+        }
+
+        return next();
+    });
+
 	// connect flash for flash messages
 	app.use(flash());
 
