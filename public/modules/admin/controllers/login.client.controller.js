@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('admin').controller('LoginController', ['$scope', 'AuthService',
-    function($scope, AuthService) {
+angular.module('admin').controller('LoginController', ['$scope', 'AuthService', '$location',
+    function($scope, AuthService, $location) {
 
         $scope.login = function(credentials)
         {
@@ -11,7 +11,7 @@ angular.module('admin').controller('LoginController', ['$scope', 'AuthService',
                 function (user)
                 {
                     console.log(user.email);
-                    $scope.invalid = false;
+                    $location.path('/admin/projects');
                 },
                 function()
                 {
