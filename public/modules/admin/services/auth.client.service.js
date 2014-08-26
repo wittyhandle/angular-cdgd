@@ -15,7 +15,7 @@ angular.module('admin').factory('AuthService', ['$http',
                 .post('/auth/signin', credentials)
                 .then(function(response)
                 {
-                    return response.data;
+                    return response ? response.data : {};
                 });
         };
 

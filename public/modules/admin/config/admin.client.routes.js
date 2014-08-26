@@ -18,6 +18,25 @@ angular.module('admin').config(['$stateProvider',
                 }
             });
     }
+]).config(['$httpProvider',
+    function($httpProvider) {
+        $httpProvider.interceptors.push([
+            '$injector', function($injector)
+            {
+                return $injector.get('AuthInterceptor');
+            }
+        ]);
+    }
+]).factory('AuthInterceptor', ['$location',
+    function($location)
+    {
+        return {
+
+            responseError: function(response) {
+                $location.path('/login');
+            }
+        };
+    }
 ]).run(['$rootScope', function($rootScope)
 {
     $rootScope.$on('$stateChangeStart', function(event, next)
