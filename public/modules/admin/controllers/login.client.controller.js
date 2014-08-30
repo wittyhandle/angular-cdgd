@@ -5,12 +5,9 @@ angular.module('admin').controller('LoginController', ['$scope', 'AuthService', 
 
         $scope.login = function(credentials)
         {
-            console.log(credentials);
-            //$scope.invalid = !(AuthService.login($scope.credentials));
             AuthService.login(credentials).then(
                 function (user)
                 {
-                    console.log(user.email);
                     $location.path('/admin/index');
                 },
                 function()
