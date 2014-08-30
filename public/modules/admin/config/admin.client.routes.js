@@ -13,8 +13,14 @@ angular.module('admin').config(['$stateProvider',
             state('admin', {
                 url: '/admin/index',
                 templateUrl: 'modules/admin/views/project.index.view.html',
+                controller: 'ProjectController',
                 data: {
                     secure: true
+                },
+                resolve: {
+                    projects: function(ProjectService) {
+                        return ProjectService.listProjects();
+                    }
                 }
             });
     }

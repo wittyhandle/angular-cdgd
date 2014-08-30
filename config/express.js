@@ -90,6 +90,7 @@ module.exports = function(db) {
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret,
+        cookie: {maxAge: 60 * 60 * 1000},
 		store: new mongoStore({
 			db: db.connection.db,
 			collection: config.sessionCollection
@@ -102,7 +103,7 @@ module.exports = function(db) {
 
     // authentication filter, this needs to be defined after passport to give
     // de/serialization a chance to execute
-    app.use('/auth', function(req, res, next)
+    var requestAuthOnMissingUser = function(req, res, next)
     {
         if (!req.user)
         {
@@ -110,7 +111,10 @@ module.exports = function(db) {
         }
 
         return next();
-    });
+    };
+
+    app.use('/auth', requestAuthOnMissingUser);
+    app.use('/admin', requestAuthOnMissingUser);
 
 	// connect flash for flash messages
 	app.use(flash());

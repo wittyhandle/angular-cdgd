@@ -1,3 +1,17 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
 html, body {
     width:100%; /* Needed to avoid a redrawing bug in Firefox when resizing windows */
     height:100%;
@@ -12,6 +26,9 @@ body {
     -webkit-box-align: center;
     -moz-box-align: center;
     -ms-box-align: center;
+
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 
 .login-container {
