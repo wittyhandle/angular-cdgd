@@ -43,17 +43,4 @@ angular.module('admin').config(['$stateProvider',
             }
         };
     }
-]).run(['$rootScope', function($rootScope)
-{
-    $rootScope.$on('$stateChangeStart', function(event, next)
-    {
-        if (next.data && next.data.secure)
-        {
-            console.log('secure state');
-        }
-        else
-        {
-            console.log('insecure state');
-        }
-    });
-}]);
+]);
