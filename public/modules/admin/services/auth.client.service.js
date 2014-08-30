@@ -4,21 +4,26 @@
 /*
 * Handles the actual work of calling the REST endpoint to authenticate the user
 * */
-angular.module('admin').factory('AuthService', ['$http',
-    function($http)
+angular.module('admin').factory('AuthService', ['$http', '$q', function($http, $q)
     {
-        var authService = {};
+        return {
 
-        authService.login = function(credentials)
-        {
-            return $http
-                .post('/auth/signin', credentials)
-                .then(function(response)
-                {
-                    return response ? response.data : {};
-                });
+            login: function(credentials)
+            {
+                var deferred = $q.defer();
+                $http.post('/auth/signin', credentials)
+                    .success(function(response)
+                    {
+                        deferred.resolve(response);
+                    })
+                    .error(function(msg)
+                    {
+                        deferred.reject(msg);
+                    });
+
+                return deferred.promise;
+            }
         };
 
-        return authService;
     }
 ]);
