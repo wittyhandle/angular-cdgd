@@ -103,7 +103,7 @@ module.exports = function(db) {
 
     // authentication filter, this needs to be defined after passport to give
     // de/serialization a chance to execute
-    var requestAuthOnMissingUser = function(req, res, next)
+    app.use('/admin', function(req, res, next)
     {
         if (!req.user)
         {
@@ -111,10 +111,7 @@ module.exports = function(db) {
         }
 
         return next();
-    };
-
-    app.use('/auth', requestAuthOnMissingUser);
-    app.use('/admin', requestAuthOnMissingUser);
+    });
 
 	// connect flash for flash messages
 	app.use(flash());
