@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('admin').controller('LoginController', ['$scope', 'AuthService', '$location',
-    function($scope, AuthService, $location) {
+angular.module('admin').controller('LoginController', ['$scope', 'AuthService', '$location', '$rootScope',
+    function($scope, AuthService, $location, $rootScope) {
 
+        $rootScope.bodyClass = 'login';
         $scope.login = function(credentials)
         {
             AuthService.login(credentials).then(

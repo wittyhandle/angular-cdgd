@@ -16,7 +16,14 @@ html, body {
     width:100%; /* Needed to avoid a redrawing bug in Firefox when resizing windows */
     height:100%;
 }
+
 body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    padding-top: 70px;
+}
+
+body.login {
 
     display:-webkit-box;
     -webkit-box-pack: center;
@@ -27,8 +34,6 @@ body {
     -moz-box-align: center;
     -ms-box-align: center;
 
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
 }
 
 .login-container {

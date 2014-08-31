@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('admin').controller('ProjectController', ['$scope', 'projects',
-    function($scope, projects) {
+angular.module('admin').controller('ProjectController', ['$scope', 'projects', '$rootScope',
+    function($scope, projects, $rootScope) {
 
-        console.log('here?');
+        $rootScope.bodyClass = 'projects';
 
         $scope.projects = projects;
         $scope.name = 'mike';
