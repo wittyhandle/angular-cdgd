@@ -6,6 +6,11 @@ angular.module('admin').controller('ProjectController', ['$scope', 'projects', '
         $rootScope.bodyClass = 'projects';
 
         $scope.projects = projects;
-        $scope.name = 'mike';
+
+        $scope.revealForm = function()
+        {
+            $scope.showForm = true;
+        };
+
     }
 ]);

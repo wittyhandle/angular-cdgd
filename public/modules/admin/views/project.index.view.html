@@ -23,7 +23,11 @@
 <div class="container">
 
     <div class="row">
-        <div class="col"><a href="#" class="btn btn-info btn-sm">Add Project</a></div>
+        <div class="col-lg-1"><a data-ng-click="revealForm()" class="btn btn-info btn-sm">Add Project</a></div>
+    </div>
+
+    <div class="row new-project-container">
+        <div class="new-project" data-ng-if="showForm" data-ng-include="'/modules/admin/views/project/project.new.view.html'"></div>
     </div>
 
 </div>
